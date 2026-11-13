@@ -55,6 +55,22 @@ internal-menu relaunch and concurrent App profiles were not all verified. Real
 ordinary calls do not establish full feature parity. No identity checks are
 bypassed, and a network or permission denial is not permission to switch routes.
 
+## Reproduce the protocol fixtures
+
+After building the launcher, install the Python `websockets` test dependency
+(tested with 16.0), then run:
+
+```bash
+python3 tests/reproduce.py \
+  --launcher /tmp/codex-shared-server-build/shared-app-launcher \
+  --wrapper codex-shared-server/scripts/launch-shared-app.sh
+```
+
+These 21 synthetic cases cover binding, config/approval preservation, selective
+rollback, ownership, mismatched readback and uncertain writes. Expected boundary
+observations are labelled separately from passing cases. They never launch real
+Codex or a model; see [fixture scope](tests/README.md).
+
 ## Privacy
 
 Only reusable instructions and authored portable helper source are published.
@@ -70,6 +86,10 @@ README.md
 README.zh-CN.md
 LICENSE
 CHANGELOG.md
+tests/
+  README.md
+  reproduce.py
+  fake_app.cpp
 codex-shared-server/
   SKILL.md
   agents/openai.yaml
