@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Shared Server"
+  short_description: "Diagnose App/CLI sharing and bind Linux App tools"
+  default_prompt: "Use $codex-shared-server to verify my App and CLI backend, repair the actual routing issue, and preserve active work."
